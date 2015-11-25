@@ -1,0 +1,55 @@
+/* No Padding ------------ */
+.no-padding 		{ padding: 0px !important; }
+.no-padding-left 	{ padding-left: 0px !important; }
+.no-padding-bottom 	{ padding-bottom: 0px !important; }
+.no-padding-top 	{ padding-top: 0px !important; }
+.no-padding-right 	{ padding-right: 0px !important; }
+
+/* No Margin ------------ */
+.no-margin 			{ margin: 0px !important; }
+.no-margin-left 	{ margin-left: 0px !important; }
+.no-margin-bottom 	{ margin-bottom: 0px !important; }
+.no-margin-top 		{ margin-top: 0px !important; }
+.no-margin-right 	{ margin-right: 0px !important; }
+
+/* Margin ------------ */
+.margin 			{ margin: 20px !important; }
+.margin-left 		{ margin-left: 20px !important; }
+.margin-bottom 		{ margin-bottom: 20px !important; }
+.margin-top 		{ margin-top: 20px !important; }
+.margin-right 		{ margin-right: 20px !important; }
+
+/* Padding ------------ */
+.padding 			{ padding: 20px !important; }
+.padding-left 		{ padding-left: 20px !important; }
+.padding-bottom 	{ padding-bottom: 20px !important; }
+.padding-top 		{ padding-top: 20px !important; }
+.padding-right 		{ padding-right: 20px !important; }
+
+/* Min Padding ------------ */
+.min-padding 		{ padding: 10px !important; }
+.min-padding-left 	{ padding-left: 10px !important; }
+.min-padding-bottom { padding-bottom: 10px !important; }
+.min-padding-top 	{ padding-top: 10px !important; }
+.min-padding-right 	{ padding-right: 10px !important; }
+
+/* Min Margin ------------ */
+.min-margin 		{ margin: 10px !important; }
+.min-margin-left 	{ margin-left: 10px !important; }
+.min-margin-bottom 	{ margin-bottom: 10px !important; }
+.min-margin-top 	{ margin-top: 10px !important; }
+.min-margin-right 	{ margin-right: 10px !important; }
+
+/* Max Padding ------------ */
+.max-padding 		{ padding: 30px !important; }
+.max-padding-left 	{ padding-left: 30px !important; }
+.max-padding-bottom { padding-bottom: 30px !important; }
+.max-padding-top 	{ padding-top: 30px !important; }
+.max-padding-right 	{ padding-right: 30px !important; }
+
+/* Max Margin ------------ */
+.max-margin 		{ margin: 30px !important; }
+.max-margin-left 	{ margin-left: 30px !important; }
+.max-margin-bottom 	{ margin-bottom: 30px !important; }
+.max-margin-top 	{ margin-top: 30px !important; }
+.max-margin-right 	{ margin-right: 30px !important; }

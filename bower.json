@@ -1,0 +1,28 @@
+{
+  "name": "ContaAzul",
+  "authors": [
+    "tortoyoyo <tortoyoyo@gmail.com>"
+  ],
+  "description": "Teste da Conta Azul para Front-end",
+  "main": "app.js",
+  "moduleType": [],
+  "keywords": [
+    "contaazul",
+    "front-end"
+  ],
+  "license": "GLP",
+  "homepage": "tortoyoyo.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.8",
+    "bootstrap": "~3.3.6",
+    "angular-route": "~1.4.8",
+    "angular-mocks": "~1.4.8"
+  }
+}

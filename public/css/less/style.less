@@ -1,0 +1,97 @@
+@import "variables.less";
+@import "methods.less";
+@import "fonts.less";
+@import "../../bower_components/bootstrap/less/bootstrap.less";
+body {
+  background: @color-body;
+  margin-left: -15px;
+}
+
+// MAIN
+.main-index,
+.header {
+  width: 100%;
+}
+
+// BUTTON GREEN
+.btn-green,
+.btn-green:focus,
+.btn-green:visited {
+  color: #fff;
+}
+.btn-green {
+  padding: 10px 15px 8px;
+  min-width: 140px;
+  font-family: "proxima-nova",sans-serif !important;
+  background: @color-green-btn;
+  .border_radius(4px);
+}
+.btn-green:hover {
+
+}
+.btn-green:hover {
+  .animate_ease();
+  color: @color-white;
+  background: @color-green-btn-hover;
+}
+
+//INPUT search
+.search-input {
+  margin-right: -2px;
+  max-width: 220px;
+  font-family: "proxima-nova-ligth",sans-serif !important;
+  input {
+    min-height: 40px;
+    padding-top: 8px;
+    padding-left: 14px;
+    color: @color-text-input;
+    border: 1px solid #c9d3dd;
+    box-shadow:none;
+
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  div {
+    font-size: 12px;
+    background: @color-blue-background;
+    span {
+      padding: 1px;
+      color: @color-blue-strong;
+    }
+  }
+}
+
+// NAVBAR DEFAULT
+.navbar-default {
+  max-width: 1024px;
+  margin: 0 55px;
+  background: @color-primary;
+  border: 0;
+  margin: 0 auto;
+  .border_radius(0px);
+  .container {
+    max-width: 979px;
+  }
+}
+
+//
+.navbar-default .navbar-header {
+  .navbar-brand {
+    padding-top: 12px;
+  }
+  a {
+    color: @color-white;
+    i {
+      font-size: 15px;
+    }
+  }
+}
+
+// CONTENT
+#content {
+  max-width: 968px;
+}

@@ -1,0 +1,19 @@
+<div class="main-index">
+
+  <header-fixed></header-fixed>
+
+  <div class="container" id="content">
+
+    <div class="form-inline" style="margin-top: 19px;">
+        <a class="btn btn-green" href="#">Novo Carro</a>
+        <div class="input-group pull-right search-input">
+          <input class="form-control" ng-model="listCar.search" placeholder="Pesquisar" type="text">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+        </div>
+    </div>
+
+    <table-list options="{{listCar}}" ></table-list>
+
+  </div>
+
+</div>

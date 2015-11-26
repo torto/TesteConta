@@ -4,8 +4,8 @@
   "description": "Teste Conta Azul",
   "main": "index.js",
   "scripts": {
-    "start": "cd public && http-server -c-1 & grunt watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd public && concurrent \"http-server -c-1\" \"grunt watch\"",
+    "test": "karma start karma.config.js"
   },
   "author": "torto",
   "license": "ISC",
@@ -17,5 +17,8 @@
     "karma": "^0.13.15",
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.6"
+  },
+  "dependencies": {
+    "concurrently": "^1.0.0"
   }
 }

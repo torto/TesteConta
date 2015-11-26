@@ -1,12 +1,12 @@
 angular.module('conta-azul').factory('ListCarService', [function() {
-
+  'use strict';
 
   var listAllCar = [{
     combustivel: "Flex",
     imagem: null,
     marca: "Volkswagem",
     modelo: "Gol",
-    placa: "FFF-5498",
+    placa: "AFF-5498",
     valor: 20000
   }, {
     combustivel: "Gasolina",
@@ -24,30 +24,33 @@ angular.module('conta-azul').factory('ListCarService', [function() {
     valor: 20000
   }];
   var arrays = [];
-  function updateSplit() {
-    arrays = splitArray(listAllCar, 5);
-  }
 
   var retorno = {
     labelTable: function(callback) {
       var jsonReturn = [{
         label: 'Placa',
-        value: 'placa'
+        value: 'placa',
+        size:'col-md-2'
       }, {
         label: 'Modelo',
-        value: 'modelo'
+        value: 'modelo',
+        size:'col-md-2'
       }, {
         label: 'Marca',
-        value: 'marca'
+        value: 'marca',
+        size:'col-md-2'
       }, {
         label: 'Foto',
-        value: 'imagem'
+        value: 'imagem',
+        size:'col-md-2'
       }, {
         label: 'Combustível',
-        value: 'combustivel'
+        value: 'combustivel',
+        size:'col-md-2'
       }, {
         label: 'Valor',
-        value: 'valor'
+        value: 'valor',
+        size:'col-md-2 text-right padding-table'
       }];
       callback(jsonReturn);
     },
@@ -71,12 +74,13 @@ angular.module('conta-azul').factory('ListCarService', [function() {
       }
     },
     getCar: function(positionList, position, callback) {
-      callback(array[positionList][position]);
+      updateSplit();
+      callback(arrays[positionList][position]);
     }
   };
 
+// Utils
   function splitArray(arr, size) {
-
     var arr2 = arr.slice(0),
       arrays = [];
 
@@ -85,6 +89,10 @@ angular.module('conta-azul').factory('ListCarService', [function() {
     }
 
     return arrays;
+  }
+
+  function updateSplit() {
+    arrays = splitArray(listAllCar, 5);
   }
 
   return retorno;

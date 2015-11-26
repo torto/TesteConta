@@ -1,5 +1,5 @@
-angular.module('conta-azul').controller('IndexController',['$scope', 'ListCarService',
-    function($scope, ListCarService) {
+angular.module('conta-azul').controller('IndexController',['$scope', 'ListCarService', 'ServicesUtil',
+    function($scope, ListCarService, ServicesUtil) {
 
       $scope.listCar = {
         list: [],
@@ -15,7 +15,7 @@ angular.module('conta-azul').controller('IndexController',['$scope', 'ListCarSer
 
       $scope.page = 0;
       $scope.getListPosition($scope.page);
-      
+
       ListCarService.labelTable(function(labels) {
         $scope.listCar.labels = labels;
       });

@@ -67,8 +67,5 @@ angular.module('conta-azul').controller('IndexController', ['$scope', 'ListCarSe
     ListCarService.labelTable(function(labels) {
       $scope.listCar.labels = labels;
     });
-
-
-
   }
 ]);

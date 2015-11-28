@@ -22,27 +22,6 @@ angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
     modelo: "Fusca",
     placa: "PAI-4121",
     valor: 20000
-  }, {
-    combustivel: "Flex",
-    imagem: null,
-    marca: "Volkswagem",
-    modelo: "Gol",
-    placa: "FFF-5498",
-    valor: 20000
-  }, {
-    combustivel: "Gasolina",
-    imagem: null,
-    marca: "Volkswagem",
-    modelo: "Fox",
-    placa: "FOX-4125",
-    valor: 20000
-  }, {
-    combustivel: "Alcool",
-    imagem: "http://2.bp.blogspot.com/_lkkBt-EnhRs/TPDsQPiT1LI/AAAAAAAAIhQ/7irCdCPghlk/s1600/Image00004.jpg",
-    marca: "Volkswagen",
-    modelo: "Fusca",
-    placa: "PAI-4121",
-    valor: 20000
   }];
   var arrays = [];
 
@@ -82,7 +61,6 @@ angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
       updateSplit();
       var deferred = $q.defer();
       if (arrays) {
-
         deferred.resolve(listAllCar);
       } else {
         deferred.reject(0);
@@ -93,7 +71,6 @@ angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
       updateSplit();
       var deferred = $q.defer();
       if (arrays) {
-
         deferred.resolve(arrays.length);
       } else {
         deferred.reject(0);
@@ -104,7 +81,6 @@ angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
       updateSplit();
       var deferred = $q.defer();
       if (arrays) {
-
         var jsonReturn = arrays[position];
         deferred.resolve(jsonReturn);
       } else {

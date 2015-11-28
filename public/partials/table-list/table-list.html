@@ -9,7 +9,7 @@
         {{labels.label}}
       </th>
     </tr>
-    <tr ng-init="options.filtered = options.list" ng-repeat="car in options.filtered | startFrom:options.currentPage*5 | limitTo:options.pageSize" >
+    <tr ng-init="options.filtered = options.list" ng-click="onClickItem()(car)" ng-repeat="car in options.filtered | startFrom:options.currentPage*5 | limitTo:options.pageSize" >
       <td>
         <input type="checkbox" id="conteudo-{{$index}}" ng-click="selectItemTableDirective(car)" class="regular-checkbox" /><label for="conteudo-{{$index}}"></label>
       </td>

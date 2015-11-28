@@ -13,6 +13,11 @@
       controller: 'RegisterCarController'
     });
 
+    $routeProvider.when('/alter/car', {
+      templateUrl: 'partials/register-car/register-car.html',
+      controller: 'RegisterCarController'
+    });
+
     $routeProvider.otherwise({
       redirectTo: '/index'
     });

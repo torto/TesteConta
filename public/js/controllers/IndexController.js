@@ -1,5 +1,5 @@
-angular.module('conta-azul').controller('IndexController', ['$scope', 'ListCarService', 'ServicesUtil', '$q',
-  function($scope, ListCarService, ServicesUtil, $q) {
+angular.module('conta-azul').controller('IndexController', ['$scope', 'ListCarService', '$q','$location',
+  function($scope, ListCarService, $q, $location) {
 
     $scope.listCar = {
       list: [],
@@ -26,13 +26,13 @@ angular.module('conta-azul').controller('IndexController', ['$scope', 'ListCarSe
       var remove = [];
       for (var i = 0; i < $scope.listCar.itemSelect.length; i++) {
         var method = ListCarService.removeCar($scope.listCar.itemSelect[i]).then(function(value) {
-          console.log(value);
         });
         remove.push(method);
       }
       var update = ListCarService.getAllListCar().then(function(values) {
         $scope.listCar.list = values;
         $scope.listCar.itemSelect = [];
+        // $scope.$apply();
       });
       remove.push(update);
       $q.all(remove);
@@ -55,6 +55,11 @@ angular.module('conta-azul').controller('IndexController', ['$scope', 'ListCarSe
         return true;
       }
       return false;
+    };
+
+    $scope.changeCarPage= function(car){
+      ListCarService.setCarChange(car);
+      $location.path('/alter/car');
     };
 
     /**

@@ -6,7 +6,8 @@ angular.module('conta-azul').directive('tableList', [function() {
       options: "=",
       pagination: "@",
       onChangePage: "&",
-      onRemoveItem: "&"
+      onRemoveItem: "&",
+      onClickItem: "&"
     },
     link: function(scope, elem, attrs) {
       if (scope.pagination) {
@@ -15,7 +16,7 @@ angular.module('conta-azul').directive('tableList', [function() {
         scope.pagination = false;
       }
 
-      $(elem).on('change', 'input[type="checkbox"]', function(e) {
+      $(elem).on('click', 'input[type="checkbox"]', function(e) {
           $(this).closest('tr:not(:has(th))').toggleClass('table-select');
         e.preventDefault();
       });

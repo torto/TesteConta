@@ -1,5 +1,6 @@
 angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
   'use strict';
+  var carChange = {};
 
   var listAllCar = [{
     combustivel: "Flex",
@@ -124,6 +125,11 @@ angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
         deferred.reject(false);
       }
       return deferred.promise;
+    },
+    setCarChange: function (car) {
+      carChange = car;
+    }, getCarChange: function () {
+      return carChange;
     }
   };
 

@@ -13,25 +13,37 @@ describe('ListCarService', function() {
 
   }));
 
-  describe('getListCar: ', function() {
-    it('Pegar lista de carros por posição da pagina', function() {
-      ListCarService.listCar(0, function(lista) {
+  describe('Listas: ', function() {
+    it('GETLISTCAR: Pegar lista de carros por posição da pagina', function() {
+      ListCarService.getListCar(0, function(lista) {
         expect(lista.length).toBe(3);
       });
     });
-  });
 
-  describe('getCar: ', function() {
-    it('Pegar um carro por posicao da pagina e lista', function() {
-      ListCarService.getCar(0, 0, function(car) {
+    it('GETALLLISTCAR: Pegar lista de carros Geral', function() {
+      ListCarService.getAllListCar().then(function(lista) {
+        expect(lista.length).toBe(3);
+      });
+    });
+
+    it('GETNUMBERLISTCAR: Pegar numero de arrays com informacoes', function() {
+      ListCarService.getNumberListCar().then(function(value) {
+        expect(value).toBe(1);
+      });
+    });
+
+    it('GETCAR: Pegar um carro por posicao da pagina e lista', function() {
+      ListCarService.getCar(0, 0).then(function(car) {
         expect(car.placa).toBe("FFF-5498");
       });
     });
+
   });
+
 
   describe('addCar: ', function() {
     it('Adiciona carro', function() {
-      ListCarService.listCar(0, function(lista) {
+      ListCarService.getListCar(0, function(lista) {
         expect(lista.length).toBe(3);
       });
 
@@ -46,7 +58,7 @@ describe('ListCarService', function() {
 
       ListCarService.addCar(carro);
 
-      ListCarService.listCar(0, function(lista) {
+      ListCarService.getListCar(0, function(lista) {
         expect(lista.length).toBe(4);
       });
 
@@ -55,7 +67,7 @@ describe('ListCarService', function() {
 
   describe('moreCar: ', function() {
     it('Mais de 5 carros para testar os arrays', function() {
-      ListCarService.listCar(0, function(lista) {
+      ListCarService.getListCar(0, function(lista) {
         expect(lista.length).toBe(3);
       });
 
@@ -72,10 +84,10 @@ describe('ListCarService', function() {
       ListCarService.addCar(carro);
       ListCarService.addCar(carro);
 
-      ListCarService.listCar(0, function(lista) {
+      ListCarService.getListCar(0, function(lista) {
         expect(lista.length).toBe(5);
       });
-      ListCarService.listCar(1, function(lista) {
+      ListCarService.getListCar(1, function(lista) {
         expect(lista.length).toBe(1);
       });
 
@@ -84,14 +96,16 @@ describe('ListCarService', function() {
 
   describe('removeCar: ', function() {
     it('Remove o carro do array', function() {
-      ListCarService.listCar(0, function(lista) {
+      ListCarService.getListCar(0).then( function(lista) {
         expect(lista.length).toBe(3);
       });
 
-      ListCarService.getCar(0, 0, function(car) {
+      ListCarService.getCar(0, 0).then( function(car) {
         expect(car.placa).toBe("FFF-5498");
-        expect(ListCarService.removeCar(car)).toBe(true);
-        ListCarService.listCar(0, function(lista) {
+        ListCarService.removeCar(car).then(function (value) {
+        expect(value).toBe(true);
+      });
+        ListCarService.getListCar(0).then(function(lista) {
           expect(lista.length).toBe(2);
         });
       });

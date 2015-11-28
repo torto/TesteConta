@@ -1,4 +1,4 @@
-angular.module('conta-azul').factory('ListCarService', [function() {
+angular.module('conta-azul').factory('ListCarService', ['$q', function($q) {
   'use strict';
 
   var listAllCar = [{
@@ -6,7 +6,7 @@ angular.module('conta-azul').factory('ListCarService', [function() {
     imagem: null,
     marca: "Volkswagem",
     modelo: "Gol",
-    placa: "AFF-5498",
+    placa: "FFF-5498",
     valor: 20000
   }, {
     combustivel: "Gasolina",
@@ -17,7 +17,28 @@ angular.module('conta-azul').factory('ListCarService', [function() {
     valor: 20000
   }, {
     combustivel: "Alcool",
-    imagem: "hhttp://2.bp.blogspot.com/_lkkBt-EnhRs/TPDsQPiT1LI/AAAAAAAAIhQ/7irCdCPghlk/s1600/Image00004.jpg",
+    imagem: "http://2.bp.blogspot.com/_lkkBt-EnhRs/TPDsQPiT1LI/AAAAAAAAIhQ/7irCdCPghlk/s1600/Image00004.jpg",
+    marca: "Volkswagen",
+    modelo: "Fusca",
+    placa: "PAI-4121",
+    valor: 20000
+  }, {
+    combustivel: "Flex",
+    imagem: null,
+    marca: "Volkswagem",
+    modelo: "Gol",
+    placa: "FFF-5498",
+    valor: 20000
+  }, {
+    combustivel: "Gasolina",
+    imagem: null,
+    marca: "Volkswagem",
+    modelo: "Fox",
+    placa: "FOX-4125",
+    valor: 20000
+  }, {
+    combustivel: "Alcool",
+    imagem: "http://2.bp.blogspot.com/_lkkBt-EnhRs/TPDsQPiT1LI/AAAAAAAAIhQ/7irCdCPghlk/s1600/Image00004.jpg",
     marca: "Volkswagen",
     modelo: "Fusca",
     placa: "PAI-4121",
@@ -30,56 +51,107 @@ angular.module('conta-azul').factory('ListCarService', [function() {
       var jsonReturn = [{
         label: 'Placa',
         value: 'placa',
-        size:'col-md-2'
+        size: 'col-md-2',
+        require: true
       }, {
         label: 'Modelo',
         value: 'modelo',
-        size:'col-md-2'
+        size: 'col-md-2',
+        require: true
       }, {
         label: 'Marca',
         value: 'marca',
-        size:'col-md-2'
+        size: 'col-md-2',
+        require: true
       }, {
         label: 'Foto',
         value: 'imagem',
-        size:'col-md-2'
+        size: 'col-md-2'
       }, {
         label: 'Combustível',
         value: 'combustivel',
-        size:'col-md-2'
+        size: 'col-md-2'
       }, {
         label: 'Valor',
         value: 'valor',
-        size:'col-md-2 text-right padding-table'
+        size: 'col-md-2 text-right padding-table'
       }];
       callback(jsonReturn);
     },
-    listCar: function(position, callback) {
+    getAllListCar: function() {
       updateSplit();
-      var jsonReturn = arrays[position];
-      callback(jsonReturn);
+      var deferred = $q.defer();
+      if (arrays) {
+
+        deferred.resolve(listAllCar);
+      } else {
+        deferred.reject(0);
+      }
+      return deferred.promise;
+    },
+    getNumberListCar: function() {
+      updateSplit();
+      var deferred = $q.defer();
+      if (arrays) {
+
+        deferred.resolve(arrays.length);
+      } else {
+        deferred.reject(0);
+      }
+      return deferred.promise;
+    },
+    getListCar: function(position) {
+      updateSplit();
+      var deferred = $q.defer();
+      if (arrays) {
+
+        var jsonReturn = arrays[position];
+        deferred.resolve(jsonReturn);
+      } else {
+        deferred.reject(0);
+      }
+      return deferred.promise;
     },
     addCar: function(car) {
       updateSplit();
-      listAllCar.push(car);
+      var deferred = $q.defer();
+      if (arrays) {
+          listAllCar.push(car);
+          deferred.resolve(car);
+      } else {
+        deferred.reject(false);
+      }
+      return deferred.promise;
     },
     removeCar: function(car) {
       updateSplit();
-      var index = listAllCar.indexOf(car);
-      if (index > -1) {
-        listAllCar.splice(index, 1);
-        return true;
+      var deferred = $q.defer();
+      if (arrays) {
+        var index = listAllCar.indexOf(car);
+        if (index > -1) {
+          listAllCar.splice(index, 1);
+          deferred.resolve(true);
+        } else {
+          deferred.reject(false);
+        }
       } else {
-        return false;
+        deferred.reject(false);
       }
+      return deferred.promise;
     },
-    getCar: function(positionList, position, callback) {
+    getCar: function(positionList, position) {
       updateSplit();
-      callback(arrays[positionList][position]);
+      var deferred = $q.defer();
+      if (arrays) {
+          deferred.resolve(arrays[positionList][position]);
+      } else {
+        deferred.reject(false);
+      }
+      return deferred.promise;
     }
   };
 
-// Utils
+  // Utils
   function splitArray(arr, size) {
     var arr2 = arr.slice(0),
       arrays = [];

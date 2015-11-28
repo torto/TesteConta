@@ -4,7 +4,7 @@
   "description": "Teste Conta Azul",
   "main": "index.js",
   "scripts": {
-    "start": "cd public && concurrent \"http-server -c-1\" \"grunt watch\"",
+    "start": "cd public && concurrent \"http-server -s -c-1\" \"grunt watch\"",
     "test": "karma start karma.config.js"
   },
   "author": "torto",

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('conta-azul', ['ngRoute']).config(function($routeProvider) {
+  angular.module('conta-azul', ['ngRoute']).config(['$routeProvider',function($routeProvider) {
 
     $routeProvider.when('/', {
       templateUrl: 'partials/index.html',
@@ -22,6 +22,6 @@
       redirectTo: '/index'
     });
 
-  });
+  }]);
 
 }());

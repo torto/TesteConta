@@ -32,10 +32,16 @@ Caso não execute o bower, faça:
 
 `$ npm run test`
 
-### Desenvolvimento (watch e firulas do grunt)
+### Desenvolvimento com Grunt (watch e firulas do grunt)
 
 `$ npm run live`
 
-### Build mas só que não (AhHHAah)
+### Desenvolvimento sem  Grunt
 
 `$ npm run start`
+
+### Build
+
+`$ npm run build`
+
+O build ficará na pasta `/dist/public`.

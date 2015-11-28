@@ -4,8 +4,10 @@
   "description": "Teste Conta Azul",
   "main": "index.js",
   "scripts": {
-    "start": "cd public && concurrent \"http-server -s -c-1\" \"grunt watch\"",
-    "test": "karma start karma.config.js"
+    "live": "cd public && concurrent \"http-server -s -c-1\" \"grunt watch\"",
+    "start": "cd public && http-server -c-1",
+    "test": "karma start karma.config.js",
+    "install": "bower install"
   },
   "author": "torto",
   "license": "ISC",
